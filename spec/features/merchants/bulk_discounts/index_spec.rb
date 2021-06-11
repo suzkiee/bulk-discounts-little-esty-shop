@@ -50,9 +50,9 @@ RSpec.describe 'Bulk discount index page' do
       expect(page).to have_content("#{@discount_1.name}")
       
       click_on("Delete #{@discount_1.name} Discount")
-      
-      expect(page).to_not have_content("#{@discount_1.name}")
-      expect(current_path).to eq(merchant_bulk_discounts_path(@merchant))
+
+      expect(current_path).to eq(merchant_bulk_discounts_path(@merchant)) 
+      expect(page).to_not have_content("#{@discount_1.name}") 
     end
   end
 end
