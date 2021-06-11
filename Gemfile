@@ -40,7 +40,7 @@ gem "bootstrap_form", "~> 4.0"
 gem 'jquery-rails'
 
 gem 'faker'
-gem 'factory_bot'
+gem 'active_designer'
 
 # API Connection and JSON parsing
 # require 'faraday'
@@ -57,6 +57,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'orderly'
   gem 'simplecov'
+  gem 'factory_bot_rails'
 end
 
 group :development do
