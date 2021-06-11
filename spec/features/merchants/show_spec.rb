@@ -65,6 +65,15 @@ RSpec.describe 'Merchants dashboard show page' do
       expect(current_path).to eq("/merchants/#{@merchant.id}/invoices/#{@invoice.id}")
     end
 
+    it 'links to bulk discount index page' do
+      # visit "/merchants/#{@merchant.id}/dashboard"
+      visit merchant_merchant_dashboard_path(@merchant)
+
+      click_on("View Bulk Discounts")
+
+      expect(current_path).to eq(merchant_bulk_discounts_path(@merchant))
+    end
+
     it 'contains a table showing the top 5 customers by successful transactions' do
      customer_2 = Customer.create!(first_name: 'Andrew', last_name: 'Brae')
      customer_3 = Customer.create!(first_name: 'Yaho', last_name: 'Yoo')
