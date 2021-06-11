@@ -11,7 +11,7 @@
           <tr>
             <td><%= link_to discount.name, merchant_bulk_discount_path(@merchant, discount) %></td>
             <td><%= discount.percent_discount %>% off <%= discount.threshold %> items</td>
-            <td></td>
+            <td><%= button_to "Delete #{discount.name} Discount",  merchant_bulk_discount_path(@merchant, discount), method: :delete, data: {confirm: "Are you sure you want to delete this discount?"} %></td>
           </tr>
       <% end %>
   </table><br>
