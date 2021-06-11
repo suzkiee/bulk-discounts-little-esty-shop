@@ -12,7 +12,7 @@ RSpec.describe 'Bulk Discounts index page' do
     end
 
     it 'lists discount and its attributes' do
-      first_discount = "#{@discount_1.percent_discount}% off #{@discount_1.threshold} items"
+      first_discount = "Details: #{@discount_1.percent_discount}% off #{@discount_1.threshold} items"
       second_discount = "#{@discount_2.percent_discount}% off #{@discount_2.threshold} items"
 
       expect(page).to have_content(@discount_1.name)
