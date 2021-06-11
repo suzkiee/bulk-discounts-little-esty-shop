@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Merchants dashboard show page' do
+RSpec.describe 'Bulk discount index page' do
   describe 'display' do
     before :each do 
       @merchant = Merchant.create!(name: 'Sally Handmade')
