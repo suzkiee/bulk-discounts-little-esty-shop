@@ -3,14 +3,18 @@ require 'rails_helper'
 RSpec.describe Customer do
 
   describe 'relationships' do
-    it {should have_many :invoices}
+    it { should have_many :invoices }
+    it { should have_many(:transactions).through(:invoices) }
+    it { should have_many(:invoice_items).through(:invoices) }
+    it { should have_many(:items).through(:invoice_items) }
+    it { should have_many(:merchants).through(:items) }
   end
 
   describe 'class methods' do
     describe 'top_customers' do
       it 'returns the top 5 customer by number of successful transactions' do
         top_customers = Customer.top_five
-
+   
         expect(top_customers[0].name).to eq("Parker Daugherty")
         expect(top_customers[1].name).to eq("Ramona Reynolds")
         expect(top_customers[2].name).to eq("Joey Ondricka")
