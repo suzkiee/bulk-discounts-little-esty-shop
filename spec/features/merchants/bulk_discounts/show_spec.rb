@@ -20,5 +20,14 @@ RSpec.describe 'Bulk Discounts index page' do
       expect(page).to_not have_content(@discount_2.name)
       expect(page).to_not have_content(second_discount)
     end
+
+    it 'links to bulk discount edit page' do 
+
+      expect(current_path).to eq(merchant_bulk_discount_path(@merchant, @discount_1))
+    
+      click_button('Edit')
+
+      expect(current_path).to eq(edit_merchant_bulk_discount_path(@merchant, @discount_1))
+    end
   end
 end

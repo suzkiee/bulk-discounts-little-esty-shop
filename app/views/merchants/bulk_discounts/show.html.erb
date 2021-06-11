@@ -1,2 +1,3 @@
 <h3> Discount: <%= @discount.name %></h3>
 <p> Details: <%= @discount.percent_discount %>% off <%= @discount.threshold %> items</p>
+<%= button_to "Edit Details", edit_merchant_bulk_discount_path(@merchant, @discount), method: :get %>
