@@ -43,7 +43,8 @@ RSpec.describe 'Merchants dashboard show page' do
     end
 
     it 'lists items by oldest invoice created date' do
- 
+      
+      expect(@item.name).to appear_before(@item_2.name)
     end
 
     it 'lists corresponding invoice id of each item' do
