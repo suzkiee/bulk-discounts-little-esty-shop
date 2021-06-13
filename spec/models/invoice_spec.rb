@@ -44,7 +44,7 @@ RSpec.describe Invoice do
       expect(single_invoice.revenue).to eq total_revenue
     end
 
-    describe '.total_discounted' do
+    describe '.total_discount' do
       before :each do 
         @merchant = create(:mock_merchant)
         @customer = create(:mock_customer)
@@ -77,7 +77,6 @@ RSpec.describe Invoice do
         
         expect(@invoice.total_discount).to eq(690)
       end
-
 
       it 'calculates total discounted revenue using the max discount that can be applied to each item that meet the threshold amount' do
         discount = create(:mock_bulk_discount, threshold: 10, percent_discount: 20, merchant: @merchant)
