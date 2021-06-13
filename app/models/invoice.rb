@@ -34,5 +34,4 @@ class Invoice < ApplicationRecord
                  .order("total_discount desc")
                  .sum(&:"total_discount")
   end
-
 end
