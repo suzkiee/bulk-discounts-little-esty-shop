@@ -37,8 +37,8 @@
                 <%= form.submit %></p>
             </td>
             <td>
-              <% if ii.bulk_discounts != [] %>
-                <%= link_to "#{ii.bulk_discounts.first.name}", merchant_bulk_discount_path(@merchant, ii.bulk_discounts.first) %>
+              <% if !ii.find_discount.nil? %>
+                <%= link_to "#{ii.find_discount.name}", merchant_bulk_discount_path(@merchant, ii.find_discount) %>
               <% end %>
             </td>
         <% end %>
