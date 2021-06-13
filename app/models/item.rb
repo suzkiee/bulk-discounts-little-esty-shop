@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :invoices, through: :invoice_items
   has_many :transactions, through: :invoices
   has_many :customers, through: :invoices
-  has_many :bulk_discounts, through: :merchants
+  has_many :bulk_discounts, through: :merchant
   
   enum enabled: [:enabled, :disabled]
 
