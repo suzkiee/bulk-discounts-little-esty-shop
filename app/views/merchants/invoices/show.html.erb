@@ -16,13 +16,15 @@
   </table><br><br>
   <div>
     <h1> All Invoice Items</h1><br>
-    <h3>Expected Total Revenue: <%= number_to_currency(@invoice_items.total_revenue.to_f/100) %></h3> <br>
+    <h3>Expected Total Revenue: <%= number_to_currency(@invoice.revenue.to_f/100) %></h3> 
+    <h3>Expected Total Discounted Revenue: <%= number_to_currency(@invoice.revenue.to_f/100 - @invoice.total_discount.to_f/100) %></h3><br>
     <table class="invoice-items"style='width: 80%; border-color: white;'>
       <tr>
         <th>Item</th>
         <th>Quantity</th>
         <th>Unit Price</th>
         <th>Status</th>
+        <th>Applied Discounts</th>
       </tr>
         <% @invoice_items.each do |ii| %>
           <tr>
@@ -33,6 +35,11 @@
                 <%= form.hidden_field :ii_id, :value => ii.id %>
                 <%= form.select :status, options_for_select([:pending, :packaged, :shipped ], ii.status) %>
                 <%= form.submit %></p>
+            </td>
+            <td>
+              <% if ii.bulk_discounts != [] %>
+                <%= link_to "#{ii.bulk_discounts.first.name}", merchant_bulk_discount_path(@merchant, ii.bulk_discounts.first) %>
+              <% end %>
             </td>
         <% end %>
           </tr>
