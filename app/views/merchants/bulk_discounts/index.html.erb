@@ -15,4 +15,11 @@
           </tr>
       <% end %>
   </table><br>
+
+ <h1>Upcoming Holidays</h1>
+  <ol>
+    <% @holidays.upcoming_three.each do |holiday| %>
+      <li><strong><%= holiday[0] %></strong>: <%= holiday[1] %></li>
+    <% end %>
+  </ol> 
 </div>
