@@ -43,6 +43,14 @@ RSpec.describe 'Bulk discount index page' do
 
       expect(current_path).to eq(new_merchant_bulk_discount_path(@merchant))
     end
+
+    it 'lists upcoming holidays using Nager API' do
+      # will need a more dynamic test 
+      
+      expect(page).to have_content("Independence Day")
+      expect(page).to have_content("Labour Day")
+      expect(page).to have_content("Columbus Day")
+    end
   end
 
   describe 'functionality' do
